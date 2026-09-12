@@ -1,0 +1,49 @@
+{
+  "_source": "PHASE 5 corrected Liu-ALNS calibration replay (internal development pipeline; see REPRODUCIBILITY_NOTE.md)",
+  "comparator_name": "Adapted Liu-ALNS (2024)",
+  "source_paper": "Liu, Sun, Duan, Liu (2024). Parallel adaptive large neighborhood search based on spark to solve VRPTW. Scientific Reports 14, 23809.",
+  "T0": 800,
+  "alpha": 0.98,
+  "gap_iter": 20,
+  "max_iter": 40,
+  "n_candidates_per_iteration": 10,
+  "operators": {
+    "destroy": [
+      "random_removal",
+      "related_removal"
+    ],
+    "destroy_excluded": [
+      "route_removal"
+    ],
+    "repair": [
+      "random_repair",
+      "greedy_insertion",
+      "random_criticality_repair"
+    ],
+    "initialization_excluded": [
+      "clarke_wright"
+    ]
+  },
+  "objective": "Z_ext = D + 0.15*T + 8*L + 8*O",
+  "excludes": [
+    "quantile_risk_penalty",
+    "rsi_stability_penalty"
+  ],
+  "adaptive_weighting": "Simplified score-adaptive roulette weighting, inspired by the adaptive roulette framework Liu et al. (2024) cite from Ropke & Pisinger (2006) -- NOT claimed as an exact reproduction of the original four-outcome scoring scheme. Actual outcomes used: global-best candidate -> score 33; accepted non-global-best candidate -> score 13; rejected candidate -> score 0. A fourth 'improved' outcome (with its own smaller reward) is not implemented -- no code path ever records it.",
+  "objective_coefficients": {
+    "travel_time": 0.15,
+    "lateness": 8.0,
+    "overtime": 8.0
+  },
+  "adaptive_weight_params": {
+    "sigma1": 33.0,
+    "sigma3": 13.0,
+    "reaction_factor": 0.1,
+    "note": "sigma2 (an 'improved but not new-global-best' reward) does not exist in this implementation -- see adaptive_weighting note above."
+  },
+  "outer_candidate_proposals_per_call": {
+    "value": 401,
+    "definition": "Count of outer search-loop candidate proposals (max_iter x n_candidates_per_iteration + 1 initial), i.e. how many full destroy+repair CANDIDATES are proposed and accepted/rejected via the Metropolis criterion per corrective-search call.",
+    "note": "This is NOT the total number of objective-function (eval_Z) calls. When greedy_insertion is selected as the repair operator, it internally evaluates the objective at EVERY candidate insertion position for every removed node, which is substantially more calls than the outer proposal count. See total_objective_calls, instrumented separately per call by src/liu_alns.py, for the true total. No claim of exact objective-evaluation-count matching against SA's own budget is made unless independently measured."
+  }
+}

@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+message: "If you use this software or its de-identified reproducibility artifacts, please cite both the associated paper and this repository."
+title: "IJIES_Reproducible_Routing: Reproducibility Package for 'A Stability-Aware Computational Intelligence Framework for Risk-Guided Corrective Decision Support in Execution-Stage Routing Systems'"
+# version and date-released are intentionally left unset until an actual
+# GitHub/Zenodo release is created -- do not fabricate a version tag or
+# release date ahead of that. Set both fields at that time, e.g.:
+#   version: 1.0.0
+#   date-released: "YYYY-MM-DD"
+authors:
+  - family-names: Prasetyo
+    given-names: Ayub
+    affiliation: "Universitas Gunadarma"
+  - family-names: Madenda
+    given-names: Sarifuddin
+    affiliation: "Universitas Gunadarma"
+  - family-names: Ernastuti
+    affiliation: "Universitas Gunadarma"
+  - family-names: Murni
+    affiliation: "Universitas Gunadarma"
+preferred-citation:
+  type: article
+  title: "A Stability-Aware Computational Intelligence Framework for Risk-Guided Corrective Decision Support in Execution-Stage Routing Systems"
+  authors:
+    - family-names: Prasetyo
+      given-names: Ayub
+      affiliation: "Universitas Gunadarma"
+    - family-names: Madenda
+      given-names: Sarifuddin
+      affiliation: "Universitas Gunadarma"
+    - family-names: Ernastuti
+      affiliation: "Universitas Gunadarma"
+    - family-names: Murni
+      affiliation: "Universitas Gunadarma"
+  journal: "International Journal of Intelligent Engineering and Systems (IJIES)"
+  year: 2026
+  # DOI intentionally omitted -- do not fabricate. Add once assigned by
+  # the journal at publication (e.g. doi: "10.xxxx/xxxxx").
+# repository-code and the repository's own doi are intentionally omitted
+# until this repository is actually pushed to GitHub / released on
+# Zenodo -- do not fabricate either. Add at that time, e.g.:
+#   repository-code: "https://github.com/<org>/IJIES_Reproducible_Routing"
+#   doi: "10.5281/zenodo.xxxxxxx"
+license: MIT
+keywords:
+  - vehicle routing
+  - execution-stage re-planning
+  - simulated annealing
+  - adaptive large neighborhood search
+  - fuzzy decision support
+  - route stability
+  - travel-time uncertainty

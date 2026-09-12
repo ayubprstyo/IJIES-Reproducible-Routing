@@ -1,0 +1,15 @@
+# Minimum-version constraints (not exact pins) so this works alongside
+# Google Colab's own pre-installed package set. Exact tested versions
+# from one validated clean-runtime run are recorded in
+# supplementary/tested_environment_manifest.json (persistent, public
+# artifact) -- running notebooks/00_SETUP_AND_DATA_AUDIT.ipynb yourself
+# regenerates results/environment_manifest.json with your own
+# environment's versions, which may legitimately differ.
+#
+# Every package listed here is actually imported somewhere in src/ or
+# notebooks/ -- none are speculative/unused.
+
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+matplotlib>=3.7

@@ -1,0 +1,65 @@
+{
+  "_source": "Study design parameters and frozen configuration, final corrected state.",
+  "calibration_dates_count": 12,
+  "holdout_dates_count": 51,
+  "triggers": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "shocks": [
+    "p85",
+    "p95",
+    "delay20",
+    "delay30"
+  ],
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "methods": [
+    "NR",
+    "FR",
+    "RG",
+    "SA"
+  ],
+  "external_comparator": "Liu-ALNS",
+  "quantile_multipliers": {
+    "p50": 1.0,
+    "p85": 1.1559,
+    "p95": 1.2935
+  },
+  "oversized_stop_split": {
+    "n_source_stops": 6,
+    "n_virtual_stops": 13,
+    "total_optimization_stops": 3934,
+    "mapping": "5 stops split into 2 virtual stops each; 1 stop split into 3",
+    "mechanism": "A canonical virtual-stop mapping (src/data.py) is the single source of truth for every node ID used anywhere in the pipeline -- customer attributes, matrix lookups (split pieces resolve to their parent physical node), demand, service time, and time windows. Every lookup is a hard failure on a miss; there is no silent fallback."
+  },
+  "err_robustness": {
+    "sa_nr_scope": "full 51 held-out instances x 3 triggers, seed=101, 20 resamples/block (3,060 scenarios)",
+    "liu_alns_scope": "STRATIFIED 11-instance computational-robustness subset (NOT full 51-instance validation), 3 triggers, seed=101, 10 resamples/block (330 scenarios)",
+    "stratification_rule": "every 5th instance from the sorted 51-instance list"
+  },
+  "vehicle_capacity": {
+    "weight_cap_kg": 10000.0,
+    "volume_cap_cm3": 3992800.0,
+    "note": "Frozen study parameter: vehicle capacity limits used by the oversized-stop-split logic (src/data.py)."
+  },
+  "default_service_time_min": {
+    "value": 15.0,
+    "note": "Frozen study parameter: fallback service time (minutes) used when service_time_min_baseline is not positive in the source data."
+  },
+  "quantile_bootstrap_ci95": {
+    "p85": [
+      1.11,
+      1.209
+    ],
+    "p95": [
+      1.215,
+      1.351
+    ],
+    "note": "OD-pair cluster-bootstrap (5,000 resamples) 95% CIs for the frozen quantile_multipliers, for reference/reporting."
+  }
+}

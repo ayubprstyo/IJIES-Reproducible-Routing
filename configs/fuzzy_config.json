@@ -1,0 +1,47 @@
+{
+  "_source": "PHASE 4 corrected fuzzy calibration (internal development pipeline; see REPRODUCIBILITY_NOTE.md)",
+  "role": "decision-activation / intervention-restraint layer -- selects between NR and already-computed SA continuation; NOT a routing optimizer",
+  "calibration_dataset": "12 calibration dates only, seed=101, corrected engine",
+  "severity_input": "NR lateness (min)",
+  "flexibility_input": "trigger_fraction: 0.25=early/high flexibility, 0.50=medium, 0.75=late/low flexibility",
+  "severity_breakpoints": {
+    "p33": 13.5785,
+    "p67": 49.9127
+  },
+  "rule_base": [
+    {
+      "severity": "LOW",
+      "flexibility": "LOW|MEDIUM|HIGH",
+      "activation": "LOW"
+    },
+    {
+      "severity": "MEDIUM",
+      "flexibility": "LOW",
+      "activation": "LOW"
+    },
+    {
+      "severity": "MEDIUM",
+      "flexibility": "MEDIUM|HIGH",
+      "activation": "MEDIUM"
+    },
+    {
+      "severity": "HIGH",
+      "flexibility": "LOW",
+      "activation": "MEDIUM"
+    },
+    {
+      "severity": "HIGH",
+      "flexibility": "MEDIUM|HIGH",
+      "activation": "HIGH"
+    }
+  ],
+  "inference": "Mamdani (min conjunction, max aggregation, centroid defuzzification)",
+  "threshold_selection_rule": [
+    "harm=0%",
+    "unnecessary=0%",
+    "retention>=90%",
+    "most restrained/stable among feasible"
+  ],
+  "frozen_threshold_tau": 0.45,
+  "no_harm_claim_wording": "empirical no-harm within the tested scenarios (NOT a theoretical guarantee)"
+}

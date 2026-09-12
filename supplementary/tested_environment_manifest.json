@@ -1,0 +1,32 @@
+{
+  "run_mode": "quick",
+  "data_mode": "public",
+  "project_root": "<varies per environment -- see notebook 00's own output for your run>",
+  "repo_root": "<varies per environment -- see notebook 00's own output for your run>",
+  "in_colab": false,
+  "package_versions": {
+    "python": "3.12.3",
+    "pandas": "3.0.2",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8"
+  },
+  "global_seed": 101,
+  "regression_tests": "PASS",
+  "data_availability": {
+    "data_mode": "public",
+    "checks": {
+      "data_deidentified/experiment_outputs/nr_fr_rg_sa_block_level.csv": true,
+      "data_deidentified/experiment_outputs/liu_alns_block_level.csv": true,
+      "data_deidentified/experiment_outputs/fuzzy_holdout_block_level.csv": true,
+      "data_deidentified/calibration_split.json": true,
+      "data_demo_synthetic/customer_stops/synthetic_customer_day_stops.csv": true,
+      "data_demo_synthetic/matrices/synthetic_distance_matrix.csv": true,
+      "data_demo_synthetic/matrices/synthetic_travel_time_p50_matrix.csv": true,
+      "data_demo_synthetic/synthetic_locked_routes.csv": true
+    }
+  },
+  "date_split_audit": "PASS",
+  "timestamp": "2026-09-11T01:58:54.005917",
+  "note": "This is a snapshot from ONE validated clean-runtime run (QUICK+PUBLIC mode) of notebooks 00-11, captured at V3 packaging time. It records the exact package/Python versions and audit outcomes that were confirmed working. Re-running notebook 00 in your own environment will regenerate results/environment_manifest.json with your own project_root/repo_root and current package versions, which may legitimately differ."
+}
