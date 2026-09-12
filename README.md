@@ -167,7 +167,7 @@ hardware behind whichever Colab/local runtime you are using.
 ## Frozen configuration (authoritative source: `configs/*.json`)
 
 **SA** (`configs/sa_config.json`): T0=111, cooling=0.95, lambda_s=120,
-40 iterations, early stop=10, 10 candidate evaluations/iteration (70%
+40 iterations, early stop=10, 10 candidate/iteration (70%
 targeted / 30% random), adaptive operator weights (x1.3 success / x0.95
 failure), operators = swap/relocate/2-opt, locked prefix, fixed vehicle
 assignment.
@@ -178,7 +178,7 @@ activation role (selects NR vs already-computed SA; not a route
 optimizer).
 
 **Liu-ALNS** (`configs/liu_alns_config.json`): T0=800, alpha=0.98,
-gap_iter=20, 401 outer candidate proposals/search evaluations per call (not the total objective-function-call count -- see REPRODUCIBILITY_NOTE.md), Random+Related Removal (Route Removal
+gap_iter=20, approximately 401 outer candidate proposals per call (not the total objective-function-call count -- see REPRODUCIBILITY_NOTE.md), Random+Related Removal (Route Removal
 excluded as non-transferable to a locked-vehicle-assignment setting),
 Random Repair/Greedy Insertion/Random-Criticality Repair, simplified
 score-adaptive roulette weighting inspired by the Ropke-Pisinger (2006)
